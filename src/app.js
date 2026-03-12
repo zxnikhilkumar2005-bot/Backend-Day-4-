@@ -1,0 +1,32 @@
+/*
+-server create krna 
+-server ko config krna
+*/
+
+
+const express = require ("express")
+
+const app  = express()
+
+app.use(express.json())
+const notes = [
+    // {
+    //     title : "test title 1",
+    //     description :"test description 1"
+    // }
+]
+
+
+app.get ("/",(req,res)=>{
+    res.send("Hello world")
+})
+
+app.post("/notes",(req,res)=>{
+    console.log(req.body);
+    notes.push(req.body);
+    console.log(notes);
+    
+    res.send("note created")
+})
+
+module.exports = app
